@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { Flame, Github } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Flame, Github, Moon, Sun } from "lucide-react";
 import { CostBurnCounter } from "./CostBurnCounter";
 import { MeetingConfigPanel } from "./MeetingConfigPanel";
 import { AgendaAnalyzer } from "./AgendaAnalyzer";
 import { AnalysisResults } from "./AnalysisResults";
 import { Separator } from "@/components/ui/separator";
 import type { MeetingConfig, MeetingAnalysis } from "@/lib/types";
+import { initializeTheme, toggleTheme, type Theme } from "@/lib/theme";
 
 const DEFAULT_CONFIG: MeetingConfig = {
   attendeeCount: 5,
@@ -19,9 +20,18 @@ const DEFAULT_CONFIG: MeetingConfig = {
 export function Dashboard() {
   const [config, setConfig] = useState<MeetingConfig>(DEFAULT_CONFIG);
   const [analysis, setAnalysis] = useState<MeetingAnalysis | null>(null);
+  const [theme, setTheme] = useState<Theme>("dark");
+
+  useEffect(() => {
+    setTheme(initializeTheme());
+  }, []);
 
   const handleConfigChange = (updates: Partial<MeetingConfig>) => {
     setConfig((prev) => ({ ...prev, ...updates }));
+  };
+
+  const handleThemeToggle = () => {
+    setTheme((currentTheme) => toggleTheme(currentTheme));
   };
 
   return (
@@ -41,8 +51,16 @@ export function Dashboard() {
 
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
             <span className="hidden sm:inline">Stop burning money on bad meetings</span>
+            <button
+              type="button"
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              onClick={handleThemeToggle}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-secondary text-muted-foreground transition-colors hover:border-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+            >
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
             <a
-              href="https://github.com"
+              href="https://github.com/marioruiz97/meeting-pain-calculator"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"

@@ -7,9 +7,9 @@
 
 **Purpose**: Prepare the existing dashboard and global style system for runtime theme switching.
 
-- [ ] T001 [P] Create `lib/theme.ts` with theme constants, localStorage key, theme validation, and applyTheme helper
-- [ ] T002 [P] Update `app/layout.tsx` to render `<html lang="en">` without a hard-coded `dark` class
-- [ ] T003 [P] Add light theme CSS variable overrides and fire/orange palette support in `app/globals.css`
+- [x] T001 [P] Create `lib/theme.ts` with theme constants, localStorage key, theme validation, and applyTheme helper
+- [x] T002 [P] Update `app/layout.tsx` to render `<html lang="en">` without a hard-coded `dark` class
+- [x] T003 [P] Add light theme CSS variable overrides and fire/orange palette support in `app/globals.css`
 
 ---
 
@@ -17,9 +17,9 @@
 
 **Purpose**: Implement the shared theme persistence and application behavior before story-specific UI work.
 
-- [ ] T004 Add `.light` root-class overrides in `app/globals.css` to support light mode using the existing fire/orange palette
-- [ ] T005 Implement theme loading on client startup in `components/dashboard/Dashboard.tsx` using `lib/theme.ts`
-- [ ] T006 Implement graceful fallback when localStorage is unavailable in `lib/theme.ts` and default to dark theme
+- [x] T004 Add `.light` root-class overrides in `app/globals.css` to support light mode using the existing fire/orange palette
+- [x] T005 Implement theme loading on client startup in `components/dashboard/Dashboard.tsx` using `lib/theme.ts`
+- [x] T006 Implement graceful fallback when localStorage is unavailable in `lib/theme.ts` and default to dark theme
 
 ---
 
@@ -29,9 +29,9 @@
 
 **Independent Test**: Click the header toggle and verify the app switches between dark and light themes instantly.
 
-- [ ] T007 [US1] Add a theme toggle button to the dashboard header in `components/dashboard/Dashboard.tsx`
-- [ ] T008 [US1] Implement the toggle click handler in `components/dashboard/Dashboard.tsx` to switch the current theme
-- [ ] T009 [US1] Ensure the toggle button includes an accessible label and visible state in `components/dashboard/Dashboard.tsx`
+- [x] T007 [US1] Add a theme toggle button to the dashboard header in `components/dashboard/Dashboard.tsx`
+- [x] T008 [US1] Implement the toggle click handler in `components/dashboard/Dashboard.tsx` to switch the current theme
+- [x] T009 [US1] Ensure the toggle button includes an accessible label and visible state in `components/dashboard/Dashboard.tsx`
 
 ---
 
@@ -41,9 +41,9 @@
 
 **Independent Test**: Select a theme, reload the page, and verify the same theme is restored.
 
-- [ ] T010 [US2] Persist selected theme to localStorage in `lib/theme.ts`
-- [ ] T011 [US2] Load and apply the persisted theme on app startup in `components/dashboard/Dashboard.tsx`
-- [ ] T012 [US2] Verify that invalid or missing stored values fall back to dark theme in `lib/theme.ts`
+- [x] T010 [US2] Persist selected theme to localStorage in `lib/theme.ts`
+- [x] T011 [US2] Load and apply the persisted theme on app startup in `components/dashboard/Dashboard.tsx`
+- [x] T012 [US2] Verify that invalid or missing stored values fall back to dark theme in `lib/theme.ts`
 
 ---
 
