@@ -46,7 +46,8 @@ cd meeting-pain-calculator
 npm install
 
 # Set up environment variables
-cp .env.example .env.local
+cp .env.example .env.local        # macOS/Linux/Git Bash
+# copy .env.example .env.local   # Windows CMD
 # Edit .env.local and add your OPENAI_API_KEY
 ```
 
